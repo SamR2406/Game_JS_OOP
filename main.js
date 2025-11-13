@@ -102,7 +102,7 @@ const GOOD_FINAL_SLIDES = [
 const LETTER_REGEX = /^[A-Z]$/;
 const LETTER_TILE_START = 11;
 const TYPEABLE_SYMBOLS = new Set([...KEY_SYMBOLS, " "]);
-const GEMINI_API_KEY = "AIzaSyAqE6VdDr6-q83zCxfTqEoZKR6tGULY4jA";
+const GEMINI_API_KEY = ;
 const GEMINI_URL = GEMINI_API_KEY
   ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`
   : null;
