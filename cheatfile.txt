@@ -6,3 +6,13 @@ Quick path to finish the current build:
 4. `back` — return to the Front Living Room.
 5. `front` — unlock and enter the Mirror Hall using the Gold Key.
 6. `mirror` — press into the giant mirror and trigger the finale.
+
+Good ending (shatter the mimic) quick path:
+
+1. `yes` — reply so the typewriter link engages.
+2. `search` — rummage the Front Living Room for the Burned Letter clue about BREAK THE MIRROR (and the hint note).
+3. `left` — head into the Music Room.
+4. `search` — lift the Gold Key from the piano benches.
+5. `back` — return to the Front Living Room.
+6. `front` — unlock and enter the Mirror Hall with the Gold Key.
+7. `break the mirror` — type the command while in Mirror Hall to destroy the skin-walker and see the good ending.

@@ -96,15 +96,17 @@ const BAD_FINAL_SLIDES = [
 const GOOD_FINAL_SLIDES = [
   { image: "./assets/Final/good1.jpg", text: "Glass shrieks apart as white light punches through the cracked mirror." },
   { image: "./assets/Final/good2.jpg", text: "\"How did you know?\" the skin-walker rages while the mansion lights strobe on and off." },
-  { image: "./assets/Final/good3.png", text: "The hall settles into dusty calm, shards glowing like embers that warn others away." }
+  { image: "./assets/Final/good3.jpg", text: "The hall settles into dusty calm, shards glowing like embers that warn others away." }
 ];
 
 const LETTER_REGEX = /^[A-Z]$/;
 const LETTER_TILE_START = 11;
 const TYPEABLE_SYMBOLS = new Set([...KEY_SYMBOLS, " "]);
-const GEMINI_API_KEY = ;
+const GEMINI_API_KEY = "";
+const GEMINI_MODEL = "gemini-2.0-flash-lite";
+const GEMINI_API_VERSION = "v1";
 const GEMINI_URL = GEMINI_API_KEY
-  ? `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`
+  ? `https://generativelanguage.googleapis.com/${GEMINI_API_VERSION}/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`
   : null;
 
 const LOOT_LIBRARY = {
