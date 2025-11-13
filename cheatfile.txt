@@ -1,0 +1,8 @@
+Quick path to finish the current build:
+
+1. `yes` — respond to the opening plea so the connection activates.
+2. `left` — step into the Music Room.
+3. `search` — grab the Gold Key (and sword) from the piano benches.
+4. `back` — return to the Front Living Room.
+5. `front` — unlock and enter the Mirror Hall using the Gold Key.
+6. `mirror` — press into the giant mirror and trigger the finale.

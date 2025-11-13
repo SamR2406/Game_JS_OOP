@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letters Across the Rift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="min-h-screen flex justify-center px-4 py-8">
+    <div class="w-full max-w-6xl flex flex-col gap-6 lg:flex-row lg:items-start">
+      <aside class="lg:w-80 shrink-0 space-y-4">
+        <header class="paper-page rounded-3xl p-4 typewriter-face space-y-4">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="space-y-2">
+              <h1 class="text-2xl sm:text-3xl font-semibold tracking-wide">Letters Across the Rift</h1>
+              <p class="text-xs uppercase tracking-[0.5em] text-[#a3856a]">Ink channel established</p>
+            </div>
+            <button
+              id="menuToggle"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl border border-[#1c120c]/20 bg-white/70 text-[#1c120c] text-sm font-semibold hover:border-[#1c120c]/40 self-start"
+            >
+              <span class="text-lg">☰</span>
+              <span>Navigator</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-xs sm:text-sm">
+            <div>
+              <span class="paper-label">Location</span>
+              <div id="hudLocation" class="text-2xl font-semibold mt-1">-</div>
+            </div>
+            <div>
+              <span class="paper-label">Keys Collected</span>
+              <div id="hudKeys" class="text-lg mt-1">-</div>
+            </div>
+            <div>
+              <span class="paper-label">Clues Logged</span>
+              <div id="hudWeapons" class="text-lg mt-1">-</div>
+            </div>
+          </div>
+          <p id="hudStatus" class="text-sm sm:text-base leading-relaxed">
+            A stranger's keystrokes rattle through the dusty house. Waiting for your first instruction.
+          </p>
+        </header>
+      </aside>
+
+      <main class="flex-1 flex flex-col gap-6">
+        <div
+          id="menuPanel"
+          class="hidden fixed top-6 right-6 z-40 w-80 max-w-[92vw] bg-[#1c120c]/95 text-white rounded-3xl border border-white/10 shadow-2xl p-5 space-y-5"
+        >
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold tracking-wide">Navigator</h2>
+            <button id="menuClose" class="text-sm uppercase tracking-[0.3em] text-white/70 hover:text-white">Close ✕</button>
+          </div>
+        <div>
+          <div class="text-xs uppercase tracking-[0.35em] text-white/60">Current prompt</div>
+          <p id="promptBox" class="typewriter-face text-base leading-relaxed text-white/90 mt-2">
+            Waiting on your first directive.
+          </p>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-[0.35em] text-white/60 mb-1">Clue ledger</div>
+          <ul id="historyList" class="space-y-2 text-sm leading-relaxed text-white/90"></ul>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-[0.35em] text-white/60 mb-1">Quick reference</div>
+          <ul class="space-y-2 list-disc list-inside text-white/90">
+            <li>Use front/left/right/back to choose a door.</li>
+            <li>Search or look to examine; inventory only tracks the keys we need.</li>
+            <li>The mirror in the hall won't open until the gold key clicks.</li>
+            <li>Keys: silver opens bedrooms, gold frees the mirror hall.</li>
+            <li>When he sees the mirror, tell him to step through.</li>
+          </ul>
+        </div>
+      </div>
+
+        <section class="flex flex-col gap-4 lg:flex-row">
+          <div class="flex-1 space-y-4">
+            <div class="paper-page rounded-3xl p-5 typewriter-face">
+              <div class="paper-label mb-3">Transcribed log</div>
+              <div id="logOutput" class="space-y-4 text-base leading-7"></div>
+            </div>
+            <div class="paper-page rounded-3xl p-5 typewriter-face">
+              <div class="paper-label mb-3">Typewritten command</div>
+              <div id="typedLine" class="flex flex-wrap gap-2 min-h-[var(--glyph-size)]"></div>
+              <div class="flex flex-wrap gap-3 pt-4">
+                <button
+                  id="spaceButton"
+                  class="px-4 py-2 rounded-xl border border-[#1c120c]/20 bg-white/70 text-[#1c120c] text-sm font-semibold hover:border-[#1c120c]/40"
+                >
+                  Insert space
+                </button>
+                <button
+                  id="backspaceButton"
+                  class="px-4 py-2 rounded-xl border border-[#1c120c]/20 bg-white/70 text-[#1c120c] text-sm font-semibold hover:border-[#1c120c]/40"
+                >
+                  Backspace
+                </button>
+                <button
+                  id="sendCommand"
+                  class="flex-1 min-w-[150px] px-4 py-2 rounded-xl bg-[#412113] text-[#f7f0e3] text-base font-semibold tracking-wide hover:bg-[#55311f]"
+                >
+                  Send (Enter)
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="qwerty-panel rounded-3xl border px-4 py-5">
+          <div class="text-xs uppercase tracking-[0.45em] text-[#f7d7c2] mb-3">QWERTY Deck</div>
+          <div id="keyboard" class="flex flex-col gap-3 overflow-x-auto pb-2"></div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-[#0b0502]/90 backdrop-blur-sm flex flex-col items-center justify-center gap-8 px-4 z-50"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div id="introSequence" class="flex flex-col items-center gap-6 w-full">
+        <div id="introPanel" class="intro-panel w-full max-w-5xl">
+          <img id="introImage" src="./assets/intro/intro1.png" alt="Mansion vignette" />
+          <div class="intro-text-box typewriter-face">
+            <p id="introText">Ah, this is lovely, I just bought a mansion at a very good price.</p>
+          </div>
+        </div>
+        <button id="introButton" class="intro-button typewriter-face tracking-[0.3em]">Next</button>
+      </div>
+      <div id="finalSequence" class="flex flex-col items-center gap-6 w-full hidden">
+        <div class="intro-panel w-full max-w-5xl">
+          <img id="finalImage" src="./assets/Final/final1.png" alt="Shifting silhouette" />
+          <div class="intro-text-box typewriter-face">
+            <p id="finalText">Thank you human for bringing me to your world.</p>
+          </div>
+        </div>
+        <button id="finalButton" class="intro-button typewriter-face tracking-[0.3em]">Next</button>
+      </div>
+
+      <div
+        id="overlayMessagePanel"
+        class="paper-page max-w-xl w-full rounded-3xl p-8 typewriter-face text-center space-y-6 hidden"
+      >
+        <h1 class="text-3xl font-semibold">Letters Across the Rift</h1>
+        <p id="overlayMessage" class="text-base leading-relaxed">
+          The stranded voice steadies itself beside the bathroom mirror. Ready to reach them again?
+        </p>
+        <button
+          id="overlayButton"
+          class="w-full py-3 rounded-2xl bg-[#412113] text-[#f7f0e3] font-semibold tracking-wide hover:bg-[#55311f] transition"
+        >
+          Guide the echo
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
