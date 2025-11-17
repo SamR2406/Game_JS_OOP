@@ -11,14 +11,15 @@ class ButtonAtlas {
   constructor() {
     this.states = ["Buttons", "Hovered", "Pressed"];
     this.maps = {};
+    const assetBase = new URL("../../assets/", import.meta.url);
     this.states.forEach((state) => {
-      const base = `./assets/${state}`;
+      const stateBase = new URL(`${state}/`, assetBase);
       this.maps[state] = {};
       KEY_SYMBOLS.forEach((symbol) => {
         const tileIndex = symbolToTileIndex(symbol);
         if (tileIndex == null) return;
         const name = `tile${String(tileIndex).padStart(3, "0")}.png`;
-        this.maps[state][symbol] = `${base}/${name}`;
+        this.maps[state][symbol] = new URL(name, stateBase).href;
       });
     });
   }
