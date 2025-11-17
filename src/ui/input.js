@@ -12,7 +12,7 @@ class ButtonAtlas {
     this.states = ["Buttons", "Hovered", "Pressed"];
     this.maps = {};
     this.states.forEach((state) => {
-      const base = `/assets/${state}`;
+      const base = `./assets/${state}`;
       this.maps[state] = {};
       KEY_SYMBOLS.forEach((symbol) => {
         const tileIndex = symbolToTileIndex(symbol);

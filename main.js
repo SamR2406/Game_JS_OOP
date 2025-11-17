@@ -27,7 +27,7 @@ const GOOD_FINAL_SLIDES = [
   { image: "./assets/Final/good3.jpg", text: "The hall settles into dusty calm, shards glowing like embers that warn others away." }
 ];
 
-const GEMINI_API_KEY = "API HERE";
+const GEMINI_API_KEY = "AIzaSyAqE6VdDr6-q83zCxfTqEoZKR6tGULY4jA";
 const GEMINI_MODEL = "gemini-2.0-flash-lite";
 const GEMINI_API_VERSION = "v1";
 const GEMINI_URL = GEMINI_API_KEY
