@@ -1,4 +1,4 @@
-Quick path to finish the current build:
+Bad ending Quick path to finish:
 
 1. `yes` — respond to the opening plea so the connection activates.
 2. `left` — step into the Music Room.
